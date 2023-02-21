@@ -1,42 +1,31 @@
-var list = ["kitty", "doggie", "BEAR", "birdie"];
-/* console.log(list[0]); */
+var database = [
+{
+	username: "andrei",
+	password: "supersecret"
+}
+	];
 
-/* can also have lists inside a list */
+var newsFeed = [
+{
+	username: "Bobby",
+	timeline: "So tired from learning so much today."
+},
+{
+	username: "Sally",
+	timeline: "JS is so darn coooooooool!"
+}
+	];
 
-var numbers = [1,2,3,4];
+var usernamePrompt = prompt("What is your username:");
+var passwordPrompt = prompt("What is your password:");
 
-var booleans = [true, false]; 
-
-/* can also create a list of functions */
-
-var functionList = [function apple() {
-	console.log("apple");
-}]
-
-/* also possible but can become problematic */
-var mixedList = ["apples", 3, undefined, true, function apple() {
-	console.log("apples")
-}];
-
-var user = {
-	name: "John",
-	age: 23,
-	hobby: "Poker",
-	isMarried: false,
-	spells: ["magica", "hölölö", "sazaam"],
-	shout: function() {
-		console.log("HAAAAAAA");
+function signIn(user, password) {
+	if (user === database[0].username && 
+		password === database[0].password) {
+		console.log(newsFeed);
+	} else {
+		alert("Sorry, username or password was not of acceptable quality.");
 	}
 }
 
-var userList = [
-{
-	username: "mike122",
-	password: "awesome",
-},
-{
-	username: "jessieeee",
-	password: "cooolll",
-}
-	]
-
+signIn(usernamePrompt, passwordPrompt);

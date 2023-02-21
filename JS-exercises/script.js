@@ -1,35 +1,42 @@
-function sayHello() {
-	console.log("Hellooo");
-}
+var list = ["kitty", "doggie", "BEAR", "birdie"];
+/* console.log(list[0]); */
 
-sayHello();
+/* can also have lists inside a list */
 
-var sayBye = function() {  /* ANONYMOUS function */
-	console.log("Bye mister O.");
-}
+var numbers = [1,2,3,4];
 
-sayBye();
+var booleans = [true, false]; 
 
-/* another way to print */
-function sing(song) {
-	console.log(song);
-}
+/* can also create a list of functions */
 
-sing("lalilulelo");
-sing("humppa humppa humppa");
-sing("Tero ja minä");
+var functionList = [function apple() {
+	console.log("apple");
+}]
 
+/* also possible but can become problematic */
+var mixedList = ["apples", 3, undefined, true, function apple() {
+	console.log("apples")
+}];
 
-function multiply(a, b) {
-	if (a > 10 || b > 10) {
-		return "That is so hard..";
-	} else {
-	return a * b;
+var user = {
+	name: "John",
+	age: 23,
+	hobby: "Poker",
+	isMarried: false,
+	spells: ["magica", "hölölö", "sazaam"],
+	shout: function() {
+		console.log("HAAAAAAA");
 	}
 }
 
-multiply(5,3);
+var userList = [
+{
+	username: "mike122",
+	password: "awesome",
+},
+{
+	username: "jessieeee",
+	password: "cooolll",
+}
+	]
 
-/* we can also: */ 
-var total = multiply(4, 5);
-alert(total);

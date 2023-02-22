@@ -1,29 +1,58 @@
-var todos = [
-	"clean room",
-	"brush teeth",
-	"exercise",
-	"study Javascript",
-	"eat healthy",
+var database = [
+{
+	username: "andrei",
+	password: "supersecret"
+},
+{
+	username: "johnny11",
+	password: "alpha"
+},
+{
+	username: "sally",
+	password: "777"
+}
 	];
 
-// var todosLength = todos.length;
-// for (var i=0; i < todosLength; i++) {
-// 	todos.pop();
-// }
+var newsFeed = [
+{
+	username: "Bobby",
+	timeline: "So tired from learning so much today."
+},
+{
+	username: "Michael22",
+	timeline: "Best programming language is..."
+},
+{
+	username: "DudeMighty",
+	timeline: "I cracked it!"
+},
+{
+	username: "Sally",
+	timeline: "JS is so darn coooooooool!"
+}
+	];
 
-// forEach on uudempi tapa kirjoittaa for-looppi 
-todos.forEach(function(todo, i) {
-	console.log(todo + "!");
-})
 
-// var counterOne = 10;
-// while (counterOne > 0) {
-// 	console.log(counterOne);
-// 	counterOne--;
-// }
+function isUserValid(username, password) {
+	for (var i=0; i < database.length; i++) {
+		if(database[i].username === username &&
+			database[i].password === password) {
+			return true;
+		}
+	}
+	return false;
+}
 
-// var counterTwo = 10;
-// do {
-// 	console.log(counterTwo);
-// 	counterTwo--;
-// } while (counterTwo > -4);
+function signIn(username, password) {
+	if (isUserValid(username, password)) {
+		console.log(newsFeed);
+	} else {
+		alert("Sorry, username or password was not of acceptable quality.");
+	}
+}
+
+
+var usernamePrompt = prompt("What is your username:");
+var passwordPrompt = prompt("What is your password:");
+
+signIn(usernamePrompt, passwordPrompt);

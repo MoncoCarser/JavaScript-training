@@ -1,53 +1,70 @@
-
-// var button = document.getElementsByTagName("button")[0];
-
-// button.addEventListener("mouseleave", function() {
-// 	console.log("CLICK");
-// })
-// 
-
 var button = document.getElementById("enter");
 var input = document.getElementById("userinput");
 var ul = document.querySelector("ul");
 
-var listItem = document.querySelector("ul");
 
 function inputLength() {
 	return input.value.length;
 }
 
-function createListElement() {
+function createListElement () {
 	var li = document.createElement("li");
 	li.appendChild(document.createTextNode(input.value));
 	ul.appendChild(li);
+
+	li.addEventListener("click", function() {
+		// creates a boolean that toggles the done class on li:
+		// if the list item is clicked this toggles the done class
+		var finished = this.classList.toggle("done");
+		// creates a remove button for the finished item:
+		var removeButton = document.createElement("button");
+		removeButton.classList.add("deleteButton");
+
+		// if the list item is clicked (li add event listener ) then 
+		// finished is true
+		if (finished) {
+			removeButton.appendChild(document.createTextNode("remove"));
+			removeButton.classList = "deleteButton";
+			li.appendChild(removeButton);
+
+			removeButton.addEventListener("click", function() {
+				this.parentElement.remove();
+			});
+		} else {
+			this.getElementsByClassName("deleteButton")[0].remove();
+		}
+	})
+	// revert input value back to nothing
 	input.value = "";
 }
 
 function addListAfterClick() {
-	if (inputLength() > 0) {
+	if (inputLength() > 0 ) {
+		createListElement();
+		}
+}
+
+function addListAfterPress(event) {
+	if (inputLength() > 0 && event.keyCode === 13) {
 		createListElement();
 	}
 }
 
-function addListAfterKeypress(event) {
-	if (input.value.length > 0 && event.keyCode === 13) {
-		createListElement();
-	}
-}
+// function listStrikethrough(event) {
+// 	var listItem = document.querySelector("li");
+// 	listItem.classList.toggle("done");
+// }
 
-function itemIsDone() {
-	console.log("Click registered")
-	return '<div class="done">'+ this +'</div>';
-}
+// function deleteListItem(event) {
+// 	var itemToDelete = document.getElementById("list");
+// 	var myRemovedLink = myLinkList.lastChild;
+// 	myLinkList.removeChild(myRemovedLink);
+// }
 
-button.addEventListener("click", addListAfterClick);
+// li.addEventListener("click", listStrikethrough)
 
-input.addEventListener("keypress", addListAfterKeypress);
+// deleteButton.addEventListener("click", deleteListItem)
 
-listItem.addEventListener("click", itemIsDone);
+button.addEventListener("click", addListAfterClick )
 
-// 1. If you click on the list item, it toggles the .done  class on and off.
-
-// 2. Add buttons next to each list item to delete the item when clicked on its corresponding delete button.
-
-// 3. BONUS: When adding a new list item, it automatically adds the delete button next to it (hint: be sure to check if new items are clickable too!)
+input.addEventListener("keypress", addListAfterPress)

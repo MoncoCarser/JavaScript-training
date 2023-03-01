@@ -31,7 +31,7 @@ function createListElement () {
 				this.parentElement.remove();
 			});
 		} else {
-			this.getElementsByClassName("deleteButton")[0].remove();
+			this.getElementsByClassName("deleteButton").remove();
 		}
 	})
 	// revert input value back to nothing

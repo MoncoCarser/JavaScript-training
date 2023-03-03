@@ -29,3 +29,32 @@ const cuteGreeting = `Hi ${name}, you seem to be big like a ${age + 4} year old.
 function greet(name="", age=100, pet="bones") {
 	return cuteGreeting = `Hi ${name}, you seem to be big like a ${age + 4} year old. Whoa that is a big ${pet}.`
 }
+
+
+// Closure
+const first = () => {
+	const greet = "hi";
+	const second = () => {
+		alert(greet);
+	}
+	return second;
+}
+
+const newFunc = first();
+newFunc();
+
+//Currying
+const multiply = (a, b) => a * b;
+const curriedMultiply = (a) => (b) => a * b;
+const multiplyBy5 = curriedMultiply(5);
+
+//  if I now call multiplyBy5(5);
+//I get 5*5 = 25
+
+
+// Compose
+const compose = (f, g) => (a) => f(g(a));
+
+const sum = (num) => num + 1;
+
+compose(sum, sum)(5):

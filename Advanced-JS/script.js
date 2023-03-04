@@ -58,3 +58,40 @@ const compose = (f, g) => (a) => f(g(a));
 const sum = (num) => num + 1;
 
 compose(sum, sum)(5):
+
+
+//  forEach
+
+const array = [1, 2, 10, 16];
+
+const double = []
+const newArray = array.forEach(num => {
+	double.push(num * 2);
+})
+
+console.log("forEAch", double);
+
+// map, filter, reduce
+// map
+
+ const mapArray = array.map(num => num * 2);
+
+ console.log("map", mapArray);
+
+
+//  filter
+
+const arrayFilter = [1, 2, 10, 16];
+
+ const filterArray = arrayFilter.filter(num => num > 5);
+
+ console.log("filter", filterArray);
+
+ //  reduce
+ const arrayReduce = [1, 2, 10, 16];
+
+ const reduceArray = arrayReduce.reduce((accumulator, num) => {
+ 	return accumulator + num;
+ }, 5);
+
+ console.log("reduce", reduceArray);

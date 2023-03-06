@@ -51,11 +51,11 @@ let obj = {
 	username1: "Rudolf",
 	username2: "Mr. Grinch"}
 
-Object.keys(Obj).forEAch((key, index) => {
+Object.keys(Obj).forEach((key, index) => {
 console.log(key, obj[key]);
 })
 
-Object,values(obj).forEach(value => {
+Object.values(obj).forEach(value => {
 	console.log(value);
 })
 
@@ -89,4 +89,22 @@ try {
 	bob + "hi"
 } catch (error) {
 	console.log("NO NO NO NO" + error) // using error is not mandatory since ES10
+}
+
+
+// for of
+// iterating
+const basket = ["banana", "pear", "mansikka"];
+
+for (item of basket) {
+	console.log(item);
+}
+
+// for in 
+// works with object
+
+const bigBasket = {
+	grapes: 500,
+	pears: 4,
+	oranges: 10,
 }

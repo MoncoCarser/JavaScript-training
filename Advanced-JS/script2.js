@@ -93,18 +93,23 @@ try {
 
 
 // for of
-// iterating
+// iterating arrays and strings
+// DOES NOT WORK with objects like "for in", because must be iterable
 const basket = ["banana", "pear", "mansikka"];
 
 for (item of basket) {
 	console.log(item);
 }
 
-// for in 
-// works with object
+// for in - properties
+// enumerating -  objects
 
 const bigBasket = {
 	grapes: 500,
 	pears: 4,
 	oranges: 10,
+}
+
+for (item in bigBasket) {
+	console.log(item);
 }

@@ -33,7 +33,12 @@ const array2 = ['a', 3, 4, 2] // should return 4
 const array3 = [] // should return 0
 
 function biggestNumberInArray(arr) {
-  if(arr[0])
+  if ( arr.length === 0) {
+    return 0;
+  } else {
+      let filteredArray = arr.filter(Number.isInteger);
+      console.log(filteredArray); // I finally understood how to check the basics, apparently elimiting empty array and string issue
+    }
 }
 
 function biggestNumberInArray2(arr) {

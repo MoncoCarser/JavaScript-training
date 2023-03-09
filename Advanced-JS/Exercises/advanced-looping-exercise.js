@@ -35,19 +35,37 @@ const array3 = [] // should return 0
 function biggestNumberInArray(arr) {
   if ( arr.length === 0) {
     return 0;
-  } else {
-      let filteredArray = arr.filter(Number.isInteger);
-      console.log(filteredArray); // I finally understood how to check the basics, apparently elimiting empty array and string issue
-    }
+  }
+  let filteredArray = arr.filter(Number.isInteger);
+  return Math.max.apply(null, filteredArray);
+   //   console.log(filteredArray);  
 }
 
 function biggestNumberInArray2(arr) {
-
+  if ( arr.length === 0) {
+    return 0;
+  }
+  let filteredArray = arr.filter(Number.isInteger);
+  filteredArray.sort((a,b) => b - a);
+  console.log(filteredArray[0]);  
 }
 
 function biggestNumberInArray3(arr) {
+    if ( arr.length === 0) {
+    return 0;
+  }
+  let filteredArray = arr.filter(Number.isInteger);
 
+  var largest = 0;
+
+  for (i=0; i<filteredArray.length; i++){
+      if (filteredArray[i]>largest) {
+          largest=filteredArray[i];
+      }
+    }
+  console.log(largest);
 }
+
 
 
 // Question #2:
@@ -59,5 +77,11 @@ amazonBasket = {
 }
 
 function checkBasket(basket, lookingFor) {
-
+  for (item in basket) {
+    if (basket[item] === lookingFor) {
+      return "Item is on the list";
+    } else {
+      return "Nope, not on the list."
+    }
+  }
 }

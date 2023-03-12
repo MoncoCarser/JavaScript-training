@@ -113,3 +113,28 @@ const bigBasket = {
 for (item in bigBasket) {
 	console.log(item);
 }
+
+let andrei_pokemon = {
+	pikachu: {
+		species: "mouse pokemon",
+		height: 0.8,
+		weight: 30,
+		power: "lightning",
+	}
+}
+
+
+let power = andrei_pokemon?.pikachu?.power
+console.log(power)
+
+let power = andrei_pokemon?.pikachu?.power || "no power" // works by truthy/falsy principle 
+let power2 = andrei_pokemon?.pikachu?.power ?? "no power" // checks if null or identified
+console.log(power)
+
+
+const alpha = "something about something lalilulelo good good"
+alpha.replaceAll("good", "apple") // there is .replace, but it only worked on FIRST found match, replaceAll works on all
+
+ 
+const someArray = [123,5656,765,353,7765,33,7,45,234]
+someArray.at(-1); // going from last item

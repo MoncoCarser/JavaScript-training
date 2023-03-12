@@ -1,6 +1,6 @@
 // Exercise 1: what do you think the MIN_SAFE_INTEGER is?
-console.log(Number.MAX_SAFE_INTEGER)
-console.log(Number.MIN_SAFE_INTEGER)
+console.log(Number.MAX_SAFE_INTEGER) // 9007199254740991
+console.log(Number.MIN_SAFE_INTEGER) // -9007199254740991
 
 // Exercise 2: why does this throw an error? How can you fix it?
 3 + 4 + 1n

@@ -4,6 +4,7 @@ console.log(Number.MIN_SAFE_INTEGER) // -9007199254740991
 
 // Exercise 2: why does this throw an error? How can you fix it?
 3 + 4 + 1n
+3+4+Number(1n)
 
 // Exercise 3: Clean up this code using optional chaining
 let will_pokemon = {
@@ -42,7 +43,7 @@ if (andrei_pokemon && andrei_pokemon.raichu && will_pokemon
 
 
 // Exercise 4: What do these each output?
-console.log(false ?? 'hellooo')
+console.log(false ?? 'hellooo') //
 console.log(null ?? 'hellooo')
 console.log(null || 'hellooo')
 console.log((false || null) ?? 'hellooo')

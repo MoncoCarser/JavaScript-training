@@ -58,3 +58,13 @@ async function displayUserData(userId) {
 }
 
 displayUserData(1);
+
+// Prototypal Inheritance exercise
+
+new Date("1900-10-10").lastYear()
+// would provide 1899
+
+// Modify .map() to print smiley face at the end of each item
+
+console.log([1,2,3].map())
+// 1Smiley , 2Smiley, 3Smiley

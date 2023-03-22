@@ -59,6 +59,29 @@ async function displayUserData(userId) {
 
 displayUserData(1);
 
+// Closured 2 exercise - modify the function so it can only be called once
+
+let view;
+function initialize() {
+  view = "🏔";
+  console.log("View has been set")
+}
+
+initialize();
+initialize();
+initialize();
+console.log(view)
+
+// Closures exercise 3 - fix the function to work in 3s intervals as intended
+
+const array = [1,2,3,4];
+for (var i=0; i < array.length; i++) {
+  setTimeout(function(){
+    console.log("I am at index " + i)
+  }, 3000)
+}
+
+
 // Prototypal Inheritance exercise
 
 new Date("1900-10-10").lastYear()
@@ -66,5 +89,6 @@ new Date("1900-10-10").lastYear()
 
 // Modify .map() to print smiley face at the end of each item
 
-console.log([1,2,3].map())
+console.log([1,2,3].map(item => item + "🗺️"));
+
 // 1Smiley , 2Smiley, 3Smiley

@@ -56,21 +56,70 @@ async function displayUserData(userId) {
     console.error(`Error: ${error}`);
   }
 }
-
 displayUserData(1);
 
-// Closured 2 exercise - modify the function so it can only be called once
+//Nuclear countdown
 
-let view;
-function initialize() {
-  view = "🏔";
-  console.log("View has been set")
+const makeNuclearButton = () => {
+  let timeWithoutDestruction = 0
+  const passTime = () => timeWithoutDestruction++;
+  const totalPeaceTime = () => timeWithoutDestruction;
+  const launch = () => {
+    timeWithoutDestruction = -1;
+    return "BOOM";
+  }
+  setInterval(passTime, 1000)
+  return {
+    launch: launch,
+    totalPeaceTime: totalPeaceTime
+  }
 }
+
+const oops = makeNuclearButton();
+
+
+// Closures 2 exercise - modify the function so it can only be called once
+
+const masterView = () => {
+let called = false;
+const initialize = () => {
+  view = "🏔";
+  if (called) return; 
+    called = true;
+    return console.log("View has been set");
+}
+return {
+  onlyOnce: initialize
+}
+}
+const setView = masterView();
+//  now above can only be called once, but the way of calling is not as intended by the exercise
 
 initialize();
 initialize();
 initialize();
 console.log(view)
+
+
+// ANSWER
+let view;
+function initialize() {
+  let called = 0;
+  return function() {
+    if (called > 0) {
+      return;
+    } else {
+      view = "🏔";
+      called++;
+      console.log("View has been set");
+    }
+  }
+}
+const startOnce = initialize();
+startOnce();
+console.log(view)
+
+
 
 // Closures exercise 3 - fix the function to work in 3s intervals as intended
 
